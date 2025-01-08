@@ -1,0 +1,32 @@
+#!/bin/bash
+        #archivos= find . -type f | wc -l
+
+        #si existe y es directoio puede entrar
+        #test -d prueba1 && echo "si" ||echo "no"
+
+        #Cuenta las carpetas y archivos
+        #desde donde de ejecuta
+                pwd
+
+        #Pretende varios niveles                                       for DIR1 in */; do
+                echo "$DIR1"
+                ls | wc -l
+
+        #test -d $DIR1  && echo "Directorio" ||echo "no"
+                #cd $DIR1
+                #pwd
+
+
+                done
+
+                find . -type f | wc -l
+                echo "archivos"
+
+                echo "1er nivel"
+                tree -d -L3 | grep dir
+
+                echo "2do nivel"
+                tree -d -L1 | grep dir
+
+                echo "3er nivel"
+                tree -d -L2 | grep dir
