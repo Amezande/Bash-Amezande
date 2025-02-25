@@ -1,0 +1,31 @@
+#!/bin/bash
+
+error="\e[1;31m"
+exito="\e[1;32m"
+trap ctrl_c INT ()
+
+ctrl_c () {
+  echo -e "\m .:Saliendo:."
+}
+
+read -p "URL: "url
+read -p "Nombre: "arch
+
+if [ -Z "$url"]; then
+  echo "Debe contener una URL."
+  exit 1
+fi
+
+curl -s "$url" "$arch"
+
+if [ -Z "$arch"]; then
+  echo "Debe elegir un nombre"
+  exit 1
+fi
+
+curl -s "$url" > "$arch"
+if [ $? -eq 0 ]; then
+  echo "Código en: $arch"
+else 
+  echo "Ocurrió un error en el guardado."
+fi
