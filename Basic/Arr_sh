@@ -1,0 +1,7 @@
+#!/bin/bash
+
+arr=("Bash es mi taco de pastor")
+
+for dato in "$(arr[@])"; do 
+  echo "$dato"
+done 
