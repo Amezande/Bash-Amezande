@@ -5,7 +5,7 @@ error="\e[1;31m"
 #Nombre que le quiere dar al respaldo
 echo -e "Ingrese el nombre que le quiere dar a su respaldo: "
 read a
-b="/ruta/a/su/carpeta/o/archivo"
+b="/home/amezande/Documentos/BASH/respaldo"
 
 trap ctrl_c INT
 
@@ -16,9 +16,14 @@ ctrl_c () {
 
 main(){
     echo "Respalde sus archivos."
-    tar -cvf $a $b/*.*
+    tar -cvf $a.tar $b/*.*
 
-    if[$? = 0]
+    if [ $? -eq 0 ]
+    then 
+        echo "Archivos respaldados correctamente"
+    else
+        echo "Hubo un error en su respaldo"
+    fi
 }
 
 main
