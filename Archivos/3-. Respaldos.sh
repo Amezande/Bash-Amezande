@@ -5,7 +5,8 @@ error="\e[1;31m"
 #Nombre que le quiere dar al respaldo
 echo -e "Ingrese el nombre que le quiere dar a su respaldo: "
 read a
-b="/ruta/a/su/carpeta/de/respaldo"
+d=$(pwd)
+b=$(find . -type d | fzf)
 
 trap ctrl_c INT
 
