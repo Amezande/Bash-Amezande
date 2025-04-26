@@ -12,17 +12,27 @@ trap ctrl_c INT
 
 ctrl_c () {
     echo -e "\nSaliendo"
-    exit 0
+    exit 1
 }
+
+function h {
+    echo "Help: Use el programa para hacer un respaldo de las carpetas que desee, decida donde guardan y más con eestos parámetros"
+}
+
+#Si no se puede realizar el respaldo
+#Si no hay archivos dentro de esa carpeta para respaldar
 
 main(){
     echo "Respalde sus archivos."
-    tar -cvf $a.tar $b/*.*
+    tar -czvf $a.tar.gz $b/*.* 2>/dev/null
+    #CZVF hace tar.gz verbose
+    #Mandando los errores al dev/null
 
     if [ $? -eq 0 ]
     then 
         echo "Archivos respaldados correctamente"
     else
+
         echo "Hubo un error en su respaldo"
     fi
 }
